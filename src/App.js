@@ -4,6 +4,7 @@ import Records from "./Components/Records";
 import Pagination from "./Components/Pagination";
 
 function App() {
+  //Pagination
   // To hold the actual data
   const [data, setData] = useState([]);
   // const [loading, setLoading] = useState(true);
