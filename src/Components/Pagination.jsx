@@ -1,9 +1,42 @@
-import React from 'react'
+import React from "react";
 
-const Pagination = () => {
+const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
+  // const pageNumbers = [...Array(nPages + 1).keys()].slice(1)
+console.log(nPages)
+  const nextPage = () => {
+    if (currentPage !== nPages) setCurrentPage(currentPage + 1);
+  };
+  const prevPage = () => {
+    if (currentPage !== 1) setCurrentPage(currentPage - 1);
+  };
   return (
-    <div>Pagination</div>
-  )
-}
+    <nav>
+      <ul className="pagination justify-content-center">
+      
+          <button className="page-link" onClick={prevPage} href="#">
+            Previous
+          </button>
+       
+        {/* {pageNumbers.map(pgNumber => (
+                    <li key={pgNumber} 
+                        className= {`page-item ${currentPage === pgNumber ? 'active' : ''} `} >
 
-export default Pagination
+                        <button onClick={() => setCurrentPage(pgNumber)}  
+                            className='page-link' 
+                            href='#'>
+                            
+                            {pgNumber}
+                        </button>
+                    </li>
+                ))} */}
+   
+          <button className="page-link" onClick={nextPage} href="#">
+            Next
+          </button>
+     
+      </ul>
+    </nav>
+  );
+};
+
+export default Pagination;
