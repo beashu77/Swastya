@@ -1,9 +1,31 @@
-import React from 'react'
-
-const Cart = () => {
+import React from "react";
+import Style from "./Style.module.css";
+const Cart = ({ data }) => {
+  //  console.log("cart",data)
   return (
-    <div>Cart</div>
-  )
-}
+    <div className={Style.ProductConatiner}>
+    {data.length >0 ?  <table className={Style.table}>
+    <thead >
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.map((item) => (
+        <tr key={item.id}>
+          <td >{item.id} </td>
+          <td ><img alt={item.title} src={item.image}/> </td>
+          <td >{item.title} </td>
+          <td >${item.price} </td>
+        </tr>
+      ))}
+    </tbody>
+  </table> :<>No Cart</>}
+  </div>
+  );
+};
 
-export default Cart
+export default Cart;

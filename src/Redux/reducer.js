@@ -21,15 +21,6 @@ export const reducer =(oldstate,action)=>{
                 )
             }
 
-        case 'CHANGE_CART_QTY':
-            return {
-                ...oldstate,
-                cart: oldstate.cart.filter( (cartProduct) => 
-                cartProduct.id === action.payload.id ? ( cartProduct.qty = action.payload.qty ) : cartProduct.qty)
-            }
-            
-         
-    
         default:
             return {
                 oldstate

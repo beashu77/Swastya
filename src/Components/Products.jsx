@@ -1,28 +1,24 @@
 import React from "react";
 import Style from "./Style.module.css";
-const Products = ({ data }) => {
+const Products = ({ data ,handleCart}) => {
+
+
+  
   return (
     <div className={Style.ProductConatiner}>
-    {data.length >0 ?  <table className={Style.table}>
-    <thead >
-      <tr>
-        <th>ID</th>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
+    {data.length >0 ?  <div className={Style.ProductBox}>
+  
+   
       {data.map((item) => (
-        <tr key={item.id}>
-          <td >{item.id} </td>
-          <td ><img alt={item.title} src={item.image}/> </td>
-          <td >{item.title} </td>
-          <td >${item.price} </td>
-        </tr>
+        <div key={item.id}>
+        <img alt={item.title} src={item.image} style={{height:'100px'}}/> 
+          <p >{item.title} </p>
+          <p >${item.price} </p>
+          <button onClick={()=>{handleCart(item)}}>Add</button>
+        </div>
       ))}
-    </tbody>
-  </table> :<>No Products</>}
+   
+  </div> :<>No Products</>}
   </div>
   );
 };

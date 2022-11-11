@@ -1,3 +1,8 @@
+.OuterBox{
+    border:3px solid red;
+    display: flex;
+}
+
 .NavbarConatiner{
     height: 100px;
     background-color: lightskyblue;
@@ -23,7 +28,17 @@
     justify-content: center;
     align-items: center;
 }
+.ProductBox{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 5px;
 
+}
+
+.ProductBox >div{
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+}
 .heading{
     text-align: center;
     font-family: monospace;
@@ -35,4 +50,20 @@
 .table > thead{
     width: 100%;
     text-align: left;
+}
+
+
+@media all and (min-width: 401px) and (max-width: 720px) {
+
+.ProductBox{
+    grid-template-columns: repeat(2,1fr);
+}    
+}
+
+
+@media all and (min-width: 81px) and (max-width: 400px) {
+
+.ProductBox{
+    grid-template-columns: repeat(1,1fr);
+}    
 }
