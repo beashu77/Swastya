@@ -1,39 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Records from "./Components/Records";
+import Products from "./Components/Products";
 import Pagination from "./Components/Pagination";
+import Navbar from "./Components/Navbar";
+import Style from "./Components/Style.module.css";
 
 function App() {
-  //Pagination
-  // To hold the actual data
   const [data, setData] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage] = useState(5);
+  const [ProductsPerPage] = useState(5);
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://fakestoreapi.com/products?limit=10")
       .then((res) => {
         setData(res.data);
         console.log(res.data);
-        // setLoading(false);
       })
       .catch(() => {
         alert("There was an error while retrieving the data");
       });
   }, []);
 
-  const indexOfLastRecord = currentPage * recordsPerPage; //10
-  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage; //10-10=0
-  const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
-  // const nPages = Math.ceil(data.length / recordsPerPage)
+  const indexOfLastRecord = currentPage * ProductsPerPage; //10
+  const indexOfFirstRecord = indexOfLastRecord - ProductsPerPage; //10-10=0
+  const currentProducts = data.slice(indexOfFirstRecord, indexOfLastRecord);
+  // const nPages = Math.ceil(data.length / ProductsPerPage)
 
   return (
-    <div className="container mt-5">
-      <h2> Simple Pagination Example in React </h2>
-      <Records data={currentRecords} />
+    <div>
+      <Navbar />
+      <h1 className={Style.heading}>Our Trending Products</h1>
+      <Products data={currentProducts} />
       <Pagination
         // nPages={nPages}
         currentPage={currentPage}

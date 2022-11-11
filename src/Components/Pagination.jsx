@@ -1,5 +1,5 @@
 import React from "react";
-
+import Style from "./Style.module.css";
 const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
   // const pageNumbers = [...Array(nPages + 1).keys()].slice(1)
 console.log(nPages)
@@ -11,12 +11,12 @@ console.log(nPages)
   };
   return (
     <nav>
-      <ul className="pagination justify-content-center">
+      <ul >
       
-          <button className="page-link" onClick={prevPage} href="#">
+          <button onClick={prevPage} href="#">
             Previous
           </button>
-       
+       <>
         {/* {pageNumbers.map(pgNumber => (
                     <li key={pgNumber} 
                         className= {`page-item ${currentPage === pgNumber ? 'active' : ''} `} >
@@ -29,7 +29,7 @@ console.log(nPages)
                         </button>
                     </li>
                 ))} */}
-   
+                </>
           <button className="page-link" onClick={nextPage} href="#">
             Next
           </button>
