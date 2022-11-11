@@ -5,6 +5,8 @@ import Pagination from "./Components/Pagination";
 import Navbar from "./Components/Navbar";
 import Style from "./Components/Style.module.css";
 import Cart from "./Components/Cart";
+import Check from "./Components/Parent";
+import Parent from "./Components/Parent";
 
 function App() {
   const [data, setData] = useState([]);
@@ -35,7 +37,7 @@ function App() {
   }
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <h1 className={Style.heading}>Our Trending Products</h1>
       <div className={Style.OuterBox}>
         <div >
@@ -51,7 +53,9 @@ function App() {
           {" "}
           <Cart data={cart} />
         </div>
-      </div>
+      </div> */}
+
+      <Parent/>
     </>
   );
 }
